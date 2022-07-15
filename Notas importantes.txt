@@ -1,3 +1,6 @@
+-- 0. Creando proyecto RAILS blogApp, si en caso se crearà un proyecto con postgres se tendria que agrear --database=postgresql, Si es MYSQL --database=mysql
+	rails new blogApp
+	
 -- 1. Creando vista welcome de forma manual
 -- 2. Creando controlador de welcome
 	rails generate controller Welcome index
@@ -8,5 +11,17 @@
 -- 3.1 Verificar rutas del controlador Articulo
 	rails routes -c Article -E
 	
--- 3. Destruyendo controlador de Articulo
+-- 3.2 Destruyendo controlador de Articulo
 	rails destroy controller Article new show
+	
+-- 3.3 Creando nuevamente el controlador de Articulo
+	rails generate controller articles index new show
+	
+-- 4. Crear base de datos
+	rails db:create
+	
+-- 5. Creando modelo de Articulo
+	rails generate model article title:string body:text
+	
+-- 6. Migrando el modelo de Articulo
+	rails db:migrate

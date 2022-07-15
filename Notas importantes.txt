@@ -1,3 +1,12 @@
 -- 1. Creando vista welcome de forma manual
 -- 2. Creando controlador de welcome
-	rails g controller Welcome index
+	rails generate controller Welcome index
+	
+-- 3. Creando controlador de Articulo
+	rails generate controller Article new show
+	
+-- 3.1 Verificar rutas del controlador Articulo
+	rails routes -c Article -E
+	
+-- 3. Destruyendo controlador de Articulo
+	rails destroy controller Article new show

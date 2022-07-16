@@ -1,2 +1,5 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<% @articulos.each do |articulo| %>
+  <h1><%= articulo.title %></h1>
+  <p><%= articulo.body %></p>
+  <!--<p><= articulo.id %></p>-->
+<% end %>

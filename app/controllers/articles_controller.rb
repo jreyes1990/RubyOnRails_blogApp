@@ -14,13 +14,18 @@ class ArticlesController < ApplicationController
 
   def create
     @articulo = Article.new(article_params)
-    if @articulo.save
-      redirect_to article_path(@articulo), notice: "El articulo #{@articulo.title} se creo exitosamente."
-    else
-      render :new, status: :unprocessable_entity
-      puts "************************************************"
-      puts @articulo.errors.full_messages
-      puts "************************************************"
+
+    respond_to do |format|
+      if @articulo.save
+        format.html {redirect_to article_path(@articulo), notice: "El articulo #{@articulo.title} se creo exitosamente."}
+        format.json {render :show, status: :created, location: @articulo}
+      else
+        format.html {render :new}
+        format.json {render json: @articulo.errors.full_messages, status: :unprocessable_entity}
+        puts "************************************************"
+        puts @articulo.errors.full_messages
+        puts "************************************************"
+      end
     end
   end
 
@@ -28,19 +33,26 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    if @articulo.update(article_params)
-      redirect_to article_path(@articulo), notice: "El articulo #{@articulo.title} se actualizo exitosamente."
-    else
-      render :edit, status: :unprocessable_entity
-      puts "************************************************"
-      puts @articulo.errors.full_messages
-      puts "************************************************"
+    respond_to do |format|
+      if @articulo.update(article_params)
+        format.html {redirect_to article_path(@articulo), notice: "El articulo #{@articulo.title} se actualizo exitosamente."}
+        format.json {render :show, status: :ok, location: @articulo}
+      else
+        format.html {render :edit}
+        format.json {render json: @articulo.errors.full_messages, status: :unprocessable_entity}
+        puts "************************************************"
+        puts @articulo.errors.full_messages
+        puts "************************************************"
+      end
     end
   end
 
   def destroy
     @articulo.destroy
-    redirect_to articles_url(@articulo), notice: "El articulo #{@articulo.title} se elimino exitosamente."
+    respond_to do |format|
+      format.html {redirect_to articles_url(@articulo), notice: "El articulo #{@articulo.title} se elimino exitosamente."}
+      format.json {head :no_content}
+    end
   end
 
   private

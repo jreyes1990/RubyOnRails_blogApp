@@ -25,3 +25,9 @@
 	
 -- 6. Migrando el modelo de Articulo
 	rails db:migrate
+	
+-- 7. Creando scaffold de Categoria, se crea migraciones, MVC, rutas, formatos json, etc
+	rails generate scaffold category name color
+	
+-- 8. Migrando el scaffold de Categoria
+	rails db:migrate

@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
     @articulos = Article.all.order('id DESC')
@@ -29,13 +29,18 @@ class ArticlesController < ApplicationController
 
   def update
     if @articulo.update(article_params)
-      redirect_to edit_article_path(@articulo), notice: "El articulo #{@articulo.title} se actualizo exitosamente."
+      redirect_to article_path(@articulo), notice: "El articulo #{@articulo.title} se actualizo exitosamente."
     else
       render :edit, status: :unprocessable_entity
       puts "************************************************"
       puts @articulo.errors.full_messages
       puts "************************************************"
     end
+  end
+
+  def destroy
+    @articulo.destroy
+    redirect_to articles_url(@articulo), notice: "El articulo #{@articulo.title} se elimino exitosamente."
   end
 
   private

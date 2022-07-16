@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   def create
     @articulo = Article.new(article_params)
     if @articulo.save
-      redirect_to article_path(@articulo), notice: 'El articulo se creo de forma exitosa.'
+      redirect_to article_path(@articulo), notice: "El articulo #{@articulo.title} se creo exitosamente."
     else
       render :new, status: :unprocessable_entity
       puts "************************************************"
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @articulo.update(article_params)
-      redirect_to edit_article_path(@articulo), notice: 'El articulo se actualizo de forma exitosa.'
+      redirect_to edit_article_path(@articulo), notice: "El articulo #{@articulo.title} se actualizo exitosamente."
     else
       render :edit, status: :unprocessable_entity
       puts "************************************************"

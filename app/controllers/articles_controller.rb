@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :set_article, only: [:show]
   def index
     @articulos = Article.all.order('id DESC')
   end
@@ -23,6 +24,10 @@ class ArticlesController < ApplicationController
   end
 
   private
+  def set_article
+    @articulo = Article.find(params[:id])
+  end
+
   def article_params
     params.require(:article).permit(:title, :body)
   end

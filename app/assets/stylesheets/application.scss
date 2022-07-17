@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+
+$color-nav: white;
+$color-title: #000;
+$color-fondo: #F3F2B4;
+$color-a: #F3F2B4;
+$color-b: #FFFFD3;
+$color-c: #F4806D;
+$color-d: #C02727;
+
+$colors : (
+    color-titulo: $color-title,
+    color-fondo: $color-fondo,
+    color-a: $color-a,
+    color-b: $color-b,
+    color-c: $color-c,
+    color-d: $color-d
+);
+
+body{
+    background-color: $color-fondo;
+}
+
+@each $color_name, $color in $colors{
+    .#{$color_name}{
+        background-color: $color !important;
+    }
+
+    .#{$color_name}-text{
+        color: $color !important;
+    }
+}
+
+.nav-link{
+    color: $color-nav !important;
+}

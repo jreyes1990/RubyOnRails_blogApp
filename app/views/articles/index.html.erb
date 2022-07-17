@@ -1,8 +1,13 @@
-<%= render "partials/notificaciones" %>
-<% @articulos.each do |articulo| %>
-  <h1><%= articulo.title %></h1>
-  <p><%= articulo.body %></p>
+<div class="row">
+  <% @articulos.each do |articulo| %>
+    <div class="">
+      <div class="jumbotron container-fluid">
+        <h1><%= link_to articulo.title, article_path(articulo) %></h1>
+        <p><%= articulo.body %></p>
 
-  <%= link_to "Editar", edit_article_path(articulo) %>
-  <%= link_to "Eliminar #{articulo.title}", articulo, method: :delete, data: {confirm: "Esta seguro de eliminar el articulo #{articulo.title}?"} %>
-<% end %>
+        <%= link_to "Editar", edit_article_path(articulo), data: {confirm: "Esta seguro de actualizar el articulo #{articulo.title}?"}, class: "btn btn-warning" %>
+        <%= link_to "Eliminar", articulo, method: :delete, data: {confirm: "Esta seguro de eliminar el articulo #{articulo.title}?"}, class: "btn btn-danger" %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -16,9 +16,9 @@
       <tr>
         <td><%= category.name %></td>
         <td><%= category.color %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: "Esta seguro de eliminar la categoria #{category.name}?" } %></td>
+        <td><%= link_to 'Demostrar', category %></td>
+        <td><%= link_to 'Editar', edit_category_path(category) %></td>
+        <td><%= link_to 'Eliminar', category, method: :delete, data: { confirm: "Esta seguro de eliminar la categoria #{category.name}?" } %></td>
       </tr>
     <% end %>
   </tbody>

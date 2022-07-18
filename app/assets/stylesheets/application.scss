@@ -23,7 +23,7 @@ $color-c: #F4806D;
 $color-d: #C02727;
 
 $colors : (
-    jumbotron: rgba(17, 158, 158, 0.70),
+    jumbotron: #F3F2B4,
     color-titulo: $color-title,
     color-fondo: $color-fondo,
     color-a: $color-a,
@@ -46,8 +46,16 @@ body{
     }
 }
 
+nav{
+    margin-bottom: 10px;
+}
+
 .nav-link{
     color: $color-nav !important;
+}
+
+.list-group{
+    margin-bottom: 10px !important;
 }
 
 .space-a{

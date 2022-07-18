@@ -1,21 +1,36 @@
-<%= form_for @articulo do |form| %>
-  <% if @articulo.errors.any? %>
-    <h2>EL FORMULARIO POSEE <%= @articulo.errors.count %> ERROR(ES)</h2>
-    <div class="mb-4">
-      <% @articulo.errors.full_messages.each do |msj_error| %>
-        <li><%= msj_error %></li>
-      <% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="jumbotron space-a">
+        <fieldset>
+          <legend><h1><%= "#{titulo} Articulo" %></h1></legend>
+            <%= form_for @articulo do |form| %>
+              <div class="form-group">
+                <% if @articulo.errors.any? %>
+                  <h2>EL FORMULARIO POSEE <%= @articulo.errors.count %> ERROR(ES)</h2>
+                    <% @articulo.errors.full_messages.each do |msj_error| %>
+                      <li><%= msj_error %></li>
+                    <% end %>
+                <% end %>
+              </div>
+              <div class="form-group">
+                <%= form.label "Titulo", class: "form-label mt-4" %>
+                <%= form.text_field :title, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= form.label "Cuerpo", class: "form-label mt-4" %>
+                <%= form.text_area :body, class: "form-control", rows: "3" %>
+              </div>
+              <div class="form-group">
+                <%= form.submit "Aplicar Cambios", class: "btn btn-secondary" %>
+              </div>
+
+              <div class="form-group">
+                <%= link_to "Atràs", articles_path %>
+              </div>
+            <% end %>
+        </fieldset>
+      </div>
     </div>
-  <% end %>
-
-  <div class="mb-4">
-    <td><%= form.label "Titulo" %></td>
-    <td><%= form.text_field :title %></td>
-    <td><%= form.label "Cuerpo" %></td>
-    <td><%= form.text_area :body %></td>
-
-    <%= form.submit "Aplicar Cambios" %>
   </div>
-
-  <%= link_to "Atràs", articles_path %>
-<% end %>
+</div>

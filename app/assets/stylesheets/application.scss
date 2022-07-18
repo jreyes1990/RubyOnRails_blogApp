@@ -23,6 +23,7 @@ $color-c: #F4806D;
 $color-d: #C02727;
 
 $colors : (
+    jumbotron: rgba(17, 158, 158, 0.70),
     color-titulo: $color-title,
     color-fondo: $color-fondo,
     color-a: $color-a,
@@ -47,4 +48,8 @@ body{
 
 .nav-link{
     color: $color-nav !important;
+}
+
+.space-a{
+    margin-top: 15px;
 }

@@ -16,6 +16,6 @@ require("./channels")
 // const imagePath = (name) => images(name, true)
 
 //= require jquery
-//= require bootstrap
-//= require popper
+//= require bootstrap.min
+//= require popper.min
 //= require_tree .

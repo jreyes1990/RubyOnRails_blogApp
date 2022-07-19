@@ -32,6 +32,7 @@ gem 'autoprefixer-rails'
 #gem 'jquery-rails'
 #gem 'font-awesome-rails'
 
+gem 'devise'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

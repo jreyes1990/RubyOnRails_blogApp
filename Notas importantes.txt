@@ -86,3 +86,22 @@
 	--        (es frecuente, Userpero también podría ser Admin). Esto creará un modelo (si no existe) y lo configurará con los módulos Devise predeterminados. 
 	--        El generador también configura su config/routes.rbarchivo para apuntar al controlador de dispositivo.
 	rails generate devise user
+	
+	-- 16.5 Se agregaron los siguientes campos en migration
+	t.string :name
+	t.string :last_name
+	t.integer :permission_level
+	t.string :uid
+	t.string :provider
+	t.string :hobby
+	
+	-- 16.6 Luego, verifique el MODELO para cualquier opción de configuración adicional que desee agregar, como confirmable o bloqueable. 
+	--        Si agrega una opción, asegúrese de inspeccionar el archivo de migración (creado por el generador si su ORM lo admite) y descomente la sección 
+	--        correspondiente. Por ejemplo, si agrega la opción confirmable en el modelo, deberá descomentar la sección Confirmable en la migración.
+	rails db:migrate
+	
+	-- 16.7 Deshacer la  migracion
+	rails db:rollback
+	
+	-- 16.8 Aplicando migracion
+	rails db:migrate

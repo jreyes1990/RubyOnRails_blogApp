@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Categories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Color</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
+<div class="jumbotron">
+  <h1>Categorias</h1>
+  <table>
+    <thead>
       <tr>
-        <td><%= category.name %></td>
-        <td><%= category.color %></td>
-        <td><%= link_to 'Demostrar', category %></td>
-        <td><%= link_to 'Editar', edit_category_path(category) %></td>
-        <td><%= link_to 'Eliminar', category, method: :delete, data: { confirm: "Esta seguro de eliminar la categoria #{category.name}?" } %></td>
+        <th>Name</th>
+        <th>Color</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.name %></td>
+          <td><%= category.color %></td>
+          <td><%= link_to 'Demostrar', category %></td>
+          <td><%= link_to 'Editar', edit_category_path(category), data: { confirm: "Esta seguro de actualizar la categoria #{category.name}?" } %></td>
+          <td><%= link_to 'Eliminar', category, method: :delete, data: { confirm: "Esta seguro de eliminar la categoria #{category.name}?" } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Category', new_category_path %>
+  <br>
+
+  <%= link_to 'New Category', new_category_path %>
+</div>
+
+<div class="row">
+  <%= render @categories %>
+</div>

@@ -68,3 +68,21 @@
 	
 	-- 15.2 Descarga archivo jquery.slim 3.5.1 de bootstrap
 	https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js
+	
+-- 16. Creacion de la gema devise
+	https://github.com/heartcombo/devise
+	
+	-- 16.1 Agregue la siguiente línea a su Gemfile:
+	gem 'devise'
+	
+	-- 16.2 debe ejecutar el generador:
+	rails generate devise:install
+	
+	-- 16.3 deberá configurar las opciones de URL predeterminadas para el programa de correo Devise en cada entorno. 
+	--        Aquí hay una posible configuración para config/environments/development.rb:
+	config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+	
+	-- 16.4 En el siguiente comando, reemplazará MODELcon el nombre de clase utilizado para los usuarios de la aplicación 
+	--        (es frecuente, Userpero también podría ser Admin). Esto creará un modelo (si no existe) y lo configurará con los módulos Devise predeterminados. 
+	--        El generador también configura su config/routes.rbarchivo para apuntar al controlador de dispositivo.
+	rails generate devise user

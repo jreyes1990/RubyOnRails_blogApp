@@ -1,27 +1,39 @@
-<%= form_with(model: category, local: true) do |form| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibido que se guarde esta categoría:</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="jumbotron space-a">
+        <fieldset>
+          <legend><h1><%= "#{titulo} Categoria" %></h1></legend>
+          <%= form_with(model: category, local: true) do |form| %>
+            <% if category.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(category.errors.count, "error") %> prohibido que se guarde esta categoría:</h2>
+                <ul>
+                  <% category.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
 
-      <ul>
-        <% category.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+            <div class="form-group">
+              <%= form.label :name, class: "form-label mt-4" %>
+              <%= form.text_field :name, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= form.label :color, class: "form-label mt-4" %>
+              <%= form.color_field :color, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= form.submit "Aplicar Cambios", class: "btn btn-secondary" %>
+            </div>
+            <div class="form-group">
+            <%= link_to 'Demostrar', @category %>
+            <%= link_to 'Atràs', categories_path %>
+            </div>
+          <% end %>
+        </fieldset>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
-
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

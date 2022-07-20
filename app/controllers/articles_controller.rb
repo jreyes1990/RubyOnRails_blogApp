@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @articulo = Article.new(article_params)
+    @articulo = current_user.articles.new(article_params)
 
     respond_to do |format|
       if @articulo.save

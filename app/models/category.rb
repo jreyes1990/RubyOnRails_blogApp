@@ -3,9 +3,8 @@ class Category < ApplicationRecord
   belongs_to :user
 
   #Validaciones en campos
-  validates :name, presence: {message: 'El Nombre no puede estar vacio'}
-  validates :color, presence: {message: 'El Color no puede estar vacio'}
-  validates :name, length: {maximum: 30, minimum: 5, message: 'Debe ingresar minimo 5 caracteres y maximo 30'}
-  validates :color, length: {maximum: 20, minimum: 5, message: 'Debe ingresar minimo 5 caracteres y maximo 20'}
+  validates :name, :color, presence: {message: 'Los campos no pueden estar vacio(s)'}
+  validates :name, length: {in: 7..20, message: 'Debe ingresar minimo 7 caracteres y maximo 20'}
+  validates :color, length: {in: 4..7, message: 'Debe ingresar minimo 4 caracteres y maximo 7'}
   validates :name, :uniqueness => {message: 'El Nombre debe ser unico'}
 end

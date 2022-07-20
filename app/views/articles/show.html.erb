@@ -3,6 +3,9 @@
 <div class="jumbotron">
   <h1><%= @articulo.title %></h1>
   <p><%= @articulo.body %></p>
+  <% unless @articulo.user.nil? %>
+    <p><%=  @articulo.user.email  %></p>
+  <%  end %>
 
   <%= link_to "Atràs", root_path, class: "btn btn-info" %>
   <%= link_to "Editar", edit_article_path(@articulo), class: "btn btn-warning" %>

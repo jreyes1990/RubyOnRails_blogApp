@@ -9,6 +9,13 @@
     <%= @category.color %>
   </p>
 
+  <p>
+    <strong>Email:</strong>
+    <% unless @category.user.nil? %>
+      <%=  @category.user.email  %>
+    <% end %>
+  </p>
+
     <%= link_to 'Atràs', categories_path, class: "btn btn-info" %>
     <%= link_to 'Editar', edit_category_path(@category), class: "btn btn-warning" %>
 </div>

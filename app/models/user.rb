@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  #Tabla User haciendo referencia a las siguientes tablas
+  has_many :articles
 end

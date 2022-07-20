@@ -105,3 +105,12 @@
 	
 	-- 16.8 Aplicando migracion
 	rails db:migrate
+	
+-- 17.0 Creando migracion (Columna en idUsuario en tabla Articulo) para referenciar a la tabla usuario
+	rails generate migration AddColumnUserToArticle user:references
+	
+-- 18.0 Creando migracion (Columna en idUsuario en tabla Categoria) para referenciar a la tabla usuario
+	rails generate migration AddColumnUserToCategory user:references
+	
+-- 19.0 Aplicando migracion
+	rails db:migrate

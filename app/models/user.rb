@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   #Tabla User haciendo referencia a las siguientes tablas
   has_many :articles
+  has_many :categories
 end

@@ -1,0 +1,39 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+//control de los tiempos de los flash
+    setTimeout(function() {
+        $(".alert").fadeOut(1500);
+        $(".alert").fadeIn(1500);
+        $(".alert").fadeOut(1500);
+    },12000);
+ 
+  });
+</script>
+
+
+<script type="text/javascript">
+//control de los tiempos de los flash
+$(document).ready(function() {
+  setTimeout(function() {
+      $(".alert").fadeOut(1500);
+  },3000);
+
+  setTimeout(function() {
+      $(".alert").fadeIn(1500);
+  },4000);
+
+  setTimeout(function() {
+      $(".alert").fadeOut(1500);
+  },9000);
+
+});
+</script>
+
+
+<script type="text/javascript">
+//control de los tiempos de los flash
+	setTimeout(function() {
+      $(".alert").fadeTo(4000, 500).slideUp(500, function () {
+        $(".alert").slideUp(4000);
+    });
+</script>

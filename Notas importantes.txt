@@ -162,3 +162,9 @@
 
 -- 23.0 Agregar el menu para los usuario(s) administradores y usuario sin permisos (o contenido)
 --      Ubicacion: models/concerns    archivo a crear: permissions_concern.rb
+
+-- 24.0 Creando relacion de muchos a muchos
+   rails generate model HasCategories articles:references categories:references
+
+   -- 24.1 Aplicando migracion
+   rails db:migrate

@@ -6,9 +6,14 @@
           <h1><%= link_to articulo.title, article_path(articulo) %></h1>
           <p><%= articulo.body %></p>
 
-
-          <%= link_to "Editar", edit_article_path(articulo), data: {confirm: "Esta seguro de actualizar el articulo #{articulo.title}?"}, class: "btn btn-warning" %>
-          <%= link_to "Eliminar", articulo, method: :delete, data: {confirm: "Esta seguro de eliminar el articulo #{articulo.title}?"}, class: "btn btn-danger" %>
+          <% if user_signed_in? %>
+            <% if current_user.is_editor_user? %>
+              <%= link_to "Editar", edit_article_path(articulo), data: {confirm: "Esta seguro de actualizar el articulo #{articulo.title}?"}, class: "btn btn-warning" %>
+            <% end %>
+            <% if current_user.is_admin_user? %>
+              <%= link_to "Eliminar", articulo, method: :delete, data: {confirm: "Esta seguro de eliminar el articulo #{articulo.title}?"}, class: "btn btn-danger" %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     <% end %>

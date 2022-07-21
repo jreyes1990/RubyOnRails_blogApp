@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: %i[ edit update destroy new create]
+  #before_action :authenticate_user!, only: %i[ edit update destroy new create]
+  before_action :authenticate_user!, except: %i[ edit update destroy new create]
+  before_action :authenticate_editor!, only: %i[ edit update destroy new create]
+  before_action :authenticate_admin!, only: %i[ destroy ]
 
   def index
     @articulos = Article.all.order('id DESC')

@@ -124,38 +124,41 @@
            $(".alert").fadeIn(1500);
            $(".alert").fadeOut(1500);
        },12000);
-
      });
    </script>
 
 
    <script type="text/javascript">
    //control de los tiempos de los flash
-   $(document).ready(function() {
-     setTimeout(function() {
-         $(".alert").fadeOut(1500);
-     },3000);
-
-     setTimeout(function() {
-         $(".alert").fadeIn(1500);
-     },4000);
-
-     setTimeout(function() {
-         $(".alert").fadeOut(1500);
-     },9000);
-
-   });
+       $(document).ready(function() {
+         setTimeout(function() {
+           $(".alert").fadeOut(1500);
+         },3000);
+         setTimeout(function() {
+           $(".alert").fadeIn(1500);
+         },4000);
+         setTimeout(function() {
+           $(".alert").fadeOut(1500);
+         },9000);
+       });
    </script>
 
 
    <script type="text/javascript">
-   //control de los tiempos de los flash
-   	setTimeout(function() {
+       //control de los tiempos de los flash
+        setTimeout(function() {
          $(".alert").fadeTo(4000, 500).slideUp(500, function () {
            $(".alert").slideUp(4000);
+         });
        });
    </script>
 
 -- 21.0 Descarga archivo jquery
    https://cdnjs.com/libraries/jquery
    https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js
+
+-- 22.0 Validaciones en rails
+   https://railsguides.es/active_record_validations.html
+
+-- 23.0 Agregar el menu para los usuario(s) administradores y usuario sin permisos (o contenido)
+--      Ubicacion: models/concerns    archivo a crear: permissions_concern.rb

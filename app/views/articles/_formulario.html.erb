@@ -21,6 +21,12 @@
                 <%= form.label "Cuerpo", class: "form-label mt-4" %>
                 <%= form.text_area :body, class: "form-control", rows: "3" %>
               </div>
+
+              <% @categories.each do |category| %>
+                <%= check_box_tag "categories[]", category.id %><%= category.name %>
+              <% end %>
+
+              <br>
               <div class="form-group">
                 <%= form.submit "Aplicar Cambios", class: "btn btn-secondary" %>
               </div>

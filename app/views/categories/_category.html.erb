@@ -7,5 +7,8 @@
 <div class="col-md-3">
   <div class="jumbotron <%= "color-categoria-id-#{category.id}" %>">
     <h2><%= category.name %></h2>
+    <% if category.articles.count != 0 %>
+      <p><%= "Contiene #{category.articles.count} articulo(s)" %></p>
+    <% end %>
   </div>
 </div>

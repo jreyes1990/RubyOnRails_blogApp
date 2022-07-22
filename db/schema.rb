@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(version: 2022_07_21_064957) do
   end
 
   create_table "has_categories", force: :cascade do |t|
-    t.integer "articles_id", null: false
-    t.integer "categories_id", null: false
+    t.integer "article_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["articles_id"], name: "index_has_categories_on_articles_id"
-    t.index ["categories_id"], name: "index_has_categories_on_categories_id"
+    t.index ["article_id"], name: "index_has_categories_on_article_id"
+    t.index ["category_id"], name: "index_has_categories_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,6 +64,6 @@ ActiveRecord::Schema.define(version: 2022_07_21_064957) do
 
   add_foreign_key "articles", "users"
   add_foreign_key "categories", "users"
-  add_foreign_key "has_categories", "articles", column: "articles_id"
-  add_foreign_key "has_categories", "categories", column: "categories_id"
+  add_foreign_key "has_categories", "articles"
+  add_foreign_key "has_categories", "categories"
 end

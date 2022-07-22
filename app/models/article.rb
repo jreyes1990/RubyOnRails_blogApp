@@ -12,4 +12,20 @@ class Article < ApplicationRecord
   has_many :has_categories
   #Relacion a la tabla categories a traves de la tabla has_categories
   has_many :categories, through: :has_categories
+
+  #Despues de crear los Articulos, guardar las categorias seleccionadas
+  after_create :save_categories
+
+  def categories=(value)
+    @categories = value
+    #raise @categories.to_yaml
+  end
+
+  private
+  def save_categories
+    @categories.each do |category_id|
+      HasCategory.create(category_id: category_id, article_id: self.id)
+    end
+  end
+
 end

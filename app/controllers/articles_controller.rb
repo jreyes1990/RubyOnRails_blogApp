@@ -14,10 +14,12 @@ class ArticlesController < ApplicationController
 
   def new
     @articulo = Article.new
+    @categories = Category.all
   end
 
   def create
     @articulo = current_user.articles.new(article_params)
+    @articulo.categories = params[:categories]
 
     respond_to do |format|
       if @articulo.save
@@ -65,6 +67,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :categories)
   end
 end

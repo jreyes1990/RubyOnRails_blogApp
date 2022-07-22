@@ -168,3 +168,6 @@
 
    -- 24.1 Aplicando migracion
    rails db:migrate
+
+-- 25.0 verificacion de posibles errores
+   raise nombre_modelo (ejemplo: @article).to_yaml

@@ -7,6 +7,10 @@ class ArticlesController < ApplicationController
 
   def index
     @articulos = Article.all.order('id DESC')
+
+    if user_signed_in? && current_user.is_editor_user? && !params.has_key?(:normal)
+      render :"admin_article"
+    end
   end
 
   def show

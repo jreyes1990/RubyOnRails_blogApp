@@ -18,19 +18,23 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @articulo = current_user.articles.new(article_params)
-    @articulo.categories = params[:categories]
+    if params[:categories].nil?
+      redirect_to new_article_path, alert: "Necesitas agregar minimo una categoria."
+    else
+      @articulo = current_user.articles.new(article_params)
+      @articulo.categories = params[:categories]
 
-    respond_to do |format|
-      if @articulo.save
-        format.html {redirect_to article_path(@articulo), notice: "El articulo #{@articulo.title} se creo exitosamente."}
-        format.json {render :show, status: :created, location: @articulo}
-      else
-        format.html {render :new}
-        format.json {render json: @articulo.errors.full_messages, status: :unprocessable_entity}
-        puts "************************************************"
-        puts @articulo.errors.full_messages
-        puts "************************************************"
+      respond_to do |format|
+        if @articulo.save
+          format.html {redirect_to article_path(@articulo), notice: "El articulo #{@articulo.title} se creo exitosamente."}
+          format.json {render :show, status: :created, location: @articulo}
+        else
+          format.html {render :new}
+          format.json {render json: @articulo.errors.full_messages, status: :unprocessable_entity}
+          puts "************************************************"
+          puts @articulo.errors.full_messages
+          puts "************************************************"
+        end
       end
     end
   end

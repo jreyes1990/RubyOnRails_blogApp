@@ -8,7 +8,10 @@
   <div class="jumbotron <%= "color-categoria-id-#{category.id}" %>">
     <h2><%= category.name %></h2>
     <% if category.articles.count != 0 %>
-      <p><%= "Contiene #{category.articles.count} articulo(s)" %></p>
+      <p><strong><%= "Contiene #{category.articles.count} articulo(s)" %></strong></p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci deleniti,
+        dolores doloribus ducimus error esse ex id illum molestiae nesciunt, numquam
+        officia omnis quo reprehenderit, sed similique tempora veritatis.</p>
     <% end %>
   </div>
 </div>

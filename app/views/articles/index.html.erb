@@ -5,7 +5,13 @@
         <div class="jumbotron">
           <h1><%= link_to articulo.title, article_path(articulo) %></h1>
           <p><%= truncate(articulo.body,length: 400) %></p>
-
+          <% temporal = "Categorias: " %>
+          <% articulo.categories.each do |category| %>
+            <% temporal += "#{category.name}     " %>
+          <% end %>
+          <% if temporal != 'Categorias: ' %>
+            <p><strong><%= temporal  %></strong></p>
+          <% end %>
           <% if user_signed_in? %>
             <% if current_user.is_editor_user? %>
               <%= link_to "Editar", edit_article_path(articulo), data: {confirm: "Esta seguro de actualizar el articulo #{articulo.title}?"}, class: "btn btn-warning" %>

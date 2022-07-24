@@ -171,3 +171,5 @@
 
 -- 25.0 verificacion de posibles errores
    raise nombre_modelo (ejemplo: @article).to_yaml
+
+-- 26.0 Uso de Scoper (selectores en la base de datos), consultas personalizadas que el Desarrollador define dentro de sus modelos con el método scope

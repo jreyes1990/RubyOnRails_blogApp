@@ -16,6 +16,13 @@ class Article < ApplicationRecord
   #Despues de crear los Articulos, guardar las categorias seleccionadas
   after_create :save_categories
 
+  #Uso de scopes
+  scope :ultimos, -> {order("id DESC")}
+  #scope :ult, -> {where(title: "Laptop ASUS")}
+  scope :titulo, -> (title) {where("title LIKE ?","%#{title}%")}
+  #scope :titulo, -> (find_titulo) {where title: find_titulo}
+
+
   def categories=(value)
     @categories = value
     #raise @categories.to_yaml

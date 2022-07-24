@@ -5,8 +5,16 @@ class ArticlesController < ApplicationController
   before_action :authenticate_editor!, only: %i[ edit update destroy new create]
   before_action :authenticate_admin!, only: %i[ destroy ]
 
+  def search
+    if params.has_key?(:titulo) && params[:titulo].length != 0
+      @articulos = Article.titulo(params[:titulo])
+    else
+      @articulos = Article.ultimos
+    end
+  end
+
   def index
-    @articulos = Article.all.order('id DESC')
+    @articulos = Article.ultimos#.titulo("Laptop ASU")
 
     if user_signed_in? && current_user.is_editor_user? && !params.has_key?(:normal)
       render :"admin_article"

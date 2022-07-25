@@ -1,4 +1,4 @@
-  <div class="jumbotron">
+<div class="jumbotron">
     <div class="table-responsive-sm">
       <h1 class="text-center">Administrador</h1>
       <%= link_to "Normal", articles_path(normal: true), class: "btn btn-success salto" %>
@@ -9,6 +9,7 @@
           <th>Cuerpo</th>
           <th>Autor</th>
           <th>Fecha Creacion</th>
+          <th>Hora Creacion</th>
           <th colspan="3" class="align-text-bottom"></th>
         </tr>
         </thead>
@@ -18,10 +19,17 @@
           <td><%= art.title %></td>
           <td><%= truncate(art.body, length: 100) %></td>
           <td><%= art.user.try(:email) %></td>
-          <td><%= art.created_at %></td>
-          <td><%= link_to "Mostrar", articles_path, class: "btn btn-info" %></td>
-          <td><%= link_to "Editar", edit_article_path(art), class: "btn btn-warning" %></td>
-          <td><%= link_to "Eliminar", art, method: :delete, class: "btn btn-danger" %></td>
+          <td class="text-center"><%= art.created_at.strftime("%d/%m/%Y") %></td>
+          <td class="text-center"><%= art.created_at.strftime("%H:%M") %></td>
+          <td class="text-center"><%= link_to "Mostrar", articles_path, class: "btn btn-info" %></td>
+          <% if user_signed_in? %>
+            <% if current_user.is_editor_user? %>
+              <td class="text-center"><%= link_to "Editar", edit_article_path(art), class: "btn btn-warning" %></td>
+            <% end %>
+            <% if current_user.is_admin_user? %>
+              <td class="text-center"><%= link_to "Eliminar", art, method: :delete, class: "btn btn-danger" %></td>
+            <% end %>
+          <% end %>
         </tr>
         <% end %>
         </tbody>

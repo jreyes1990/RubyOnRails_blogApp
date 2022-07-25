@@ -173,3 +173,23 @@
    raise nombre_modelo (ejemplo: @article).to_yaml
 
 -- 26.0 Uso de Scoper (selectores en la base de datos), consultas personalizadas que el Desarrollador define dentro de sus modelos con el método scope
+
+-- 27.0 Formatos de fecha en rails
+   https://blog.nubecolectiva.com/formateando-fechas-y-horas-en-ruby-on-rails/
+
+-- 28.0 Creando las vista de devise
+   rails generate devise:views users
+
+-- 29.0 Creando los controladores de devise
+   rails generate devise:controllers users
+
+-- 30.0 Pendiente del diseño de panel de usuario, ver videos 115 a 117
+
+-- 31.0 Creando modelo de Contacto
+   rails generate model contact title:string email:string description:text
+
+   -- 31.1 Aplicando migracion
+      rails db:migrate
+
+-- 32.0 Creando controlador de Contacto
+	rails generate controller Contact create

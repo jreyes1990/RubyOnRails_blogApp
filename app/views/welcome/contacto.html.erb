@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron">
+        <h1>Platicame si tiene alguna pregunta</h1>
+        <%= form_for @contactos do |form| %>
+          <%= form.label "Asunto" %>
+          <%= form.text_field :title %>
+          <%= form.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

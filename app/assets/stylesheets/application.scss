@@ -20,7 +20,9 @@ $color-fondo: white;
 $color-a: #F3F2B4;
 $color-b: #FFFFD3;
 $color-c: #F4806D;
-$color-d: #C02727;
+$color-d: #CCFFFF;
+$search-title: #336633;
+$search-body: #669900;
 
 $colors : (
     jumbotron: #F3F2B4,
@@ -69,4 +71,23 @@ nav{
 
 .salto{
     margin-bottom: 10px;
+}
+
+.search-title{
+    font-size: 48px !important;
+    color: $search-title;
+}
+
+.search-body{
+    color: $search-body;
+}
+
+.search-title:hover{
+    font-size: 52px !important;
+    color: black;
+}
+
+.search-jumbotron{
+    padding-top: 13px !important;
+    padding-bottom: 13px !important;
 }

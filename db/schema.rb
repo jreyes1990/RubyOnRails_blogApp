@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_21_064957) do
+ActiveRecord::Schema.define(version: 2022_07_25_042611) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 2022_07_21_064957) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "title"
+    t.string "email"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "has_categories", force: :cascade do |t|

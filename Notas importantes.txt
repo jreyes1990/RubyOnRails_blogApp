@@ -193,3 +193,9 @@
 
 -- 32.0 Creando controlador de Contacto
 	rails generate controller Contact create
+
+-- 33.0 Promesas sweetalert2
+   https://sweetalert2.github.io/#handling-dismissals
+
+-- 34.0 mailer: para enviar correos
+   rails g mailer info_mailer form_contact

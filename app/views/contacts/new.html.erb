@@ -1,0 +1,19 @@
+<%= form_with(model: @contacto, local: true) do |f| %>
+  <% if @contacto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contacto.errors.count,"error") %>Prohibited this category from being saved:</h2>
+      <ul>
+        <% @contacto.errors.full.messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.label "Asunto" %>
+  <%= f.text_field :title %>
+  <%= f.label "Email" %>
+  <%= f.text_field :email %>
+  <%= f.label "Mensaje" %>
+  <%= f.text_area :description %>
+  <%= f.submit %>
+<% end %>

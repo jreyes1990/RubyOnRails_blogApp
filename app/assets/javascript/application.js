@@ -19,3 +19,4 @@ require("../../javascript/channels")
 //= require bootstrap.min
 //= require popper.min
 //= require_tree .
+//= require trix

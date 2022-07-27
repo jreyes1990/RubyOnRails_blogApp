@@ -36,6 +36,10 @@ gem 'devise'
 
 gem 'figaro'
 
+#Convertir datos a html
+gem 'trix'
+gem 'trix-rails', require: 'trix'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'

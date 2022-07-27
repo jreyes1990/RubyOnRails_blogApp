@@ -199,3 +199,7 @@
 
 -- 34.0 mailer: para enviar correos
    rails g mailer info_mailer form_contact
+
+-- 35.0 gema trix convertidor a HTML
+   https://github.com/maclover7/trix
+   https://www.rubydoc.info/gems/trix-rails/2.4.0

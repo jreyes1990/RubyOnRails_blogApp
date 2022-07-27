@@ -5,9 +5,10 @@ class InfoMailer < ApplicationMailer
   #
   #   en.info_mailer.form_contact.subject
   #
-  def form_contact
-    @greeting = "Hi"
+  def form_contact(contacto)
+    @correo = Contact.find(contacto.id)
+    @greeting = "Hi #{contacto.email}"
 
-    mail to: "to@example.org"
+    mail(to: "jarl1990mt@gmail.com", subject: contacto.email)
   end
 end

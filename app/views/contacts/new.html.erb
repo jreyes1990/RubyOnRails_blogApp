@@ -3,7 +3,7 @@
     <div id="error_explanation">
       <h2><%= pluralize(@contacto.errors.count,"error") %>Prohibited this category from being saved:</h2>
       <ul>
-        <% @contacto.errors.full.messages.each do |message| %>
+        <% @contacto.errors.full_messages.each do |message| %>
         <li><%= message %></li>
         <% end %>
       </ul>

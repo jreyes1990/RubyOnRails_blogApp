@@ -1,4 +1,4 @@
 class Contact < ApplicationRecord
   validates :email, presence: true
-  validates :email, uniqueness: true
+  #validates :email, uniqueness: true
 end

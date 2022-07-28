@@ -18,7 +18,7 @@
 <div class="row">
   <% @category.articles.each do |article| %>
     <div class="col-md-3">
-      <div class="jumbotron">
+      <div class="jumbotron h-100">
         <h2><%= article.title %></h2>
         <p><%= truncate(article.body,length: 250) %></p>
 

@@ -2,6 +2,13 @@
 <div class="container-fluid">
 <div class="jumbotron">
   <h1><%= @articulo.title %></h1>
+
+
+  <% if @articulo.img_art? %>
+    <%= image_tag @articulo.img_art.url %>
+    <%= image_tag @articulo.img_art.url(:thumb) %>
+  <% end %>
+
   <p><%= @articulo.body %></p>
   <% unless @articulo.user.nil? %>
     <p><%=  @articulo.user.email  %></p>

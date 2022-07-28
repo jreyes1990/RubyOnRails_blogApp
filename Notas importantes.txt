@@ -203,3 +203,20 @@
 -- 35.0 gema trix convertidor a HTML
    https://github.com/maclover7/trix
    https://www.rubydoc.info/gems/trix-rails/2.4.0
+
+-- 36.0 Migracion para imagenes:   https://github.com/thoughtbot/paperclip
+   rails g migration AddColumnImagesToArticles
+
+   -- 36.1 Agregar a la migracion generada
+   def change
+     add_attachment :articles, :img_art
+   end
+
+    -- 36.2 Migracion
+   rails db:migrate
+
+   -- 36.3 Error, Paperclip::Errors::CommandNotFoundError (Could not run the `identify` command. Please install ImageMagick.), ejecutar
+   sudo apt-get install imagemagick
+
+   -- 36.4 Mostrar imagen en show
+   https://code.tutsplus.com/es/tutorials/rails-image-upload-using-paperclip-in-a-rails-application--cms-25974

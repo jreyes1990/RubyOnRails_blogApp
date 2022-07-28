@@ -23,6 +23,10 @@ class Article < ApplicationRecord
   #scope :titulo, -> (find_titulo) {where title: find_titulo}
 
 
+  #Uso de imagen
+  has_attached_file :img_art, styles: { big: "500x500>", medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :img_art, content_type: /\Aimage\/.*\z/
+
   def categories=(value)
     @categories = value
     #raise @categories.to_yaml

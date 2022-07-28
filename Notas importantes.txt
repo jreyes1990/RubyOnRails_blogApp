@@ -216,6 +216,8 @@
    rails db:migrate
 
    -- 36.3 Error, Paperclip::Errors::CommandNotFoundError (Could not run the `identify` command. Please install ImageMagick.), ejecutar
+   https://stackoverflow.com/questions/6687312/how-to-install-imagemagick-for-use-with-rvm
+   
    sudo apt-get install imagemagick
 
    -- 36.4 Mostrar imagen en show

@@ -17,6 +17,10 @@
                 <%= form.label "Titulo", class: "form-label mt-4" %>
                 <%= form.text_field :title, class: "form-control" %>
               </div>
+            <div class="form-group">
+              <%= form.label "Imagen", class: "form-label mt-4" %>
+              <%= form.file_field :img_art, class: "form-control" %>
+            </div>
               <div class="form-group">
                 <%= form.label "Cuerpo", class: "form-label mt-4" %>
                 <%= form.text_area :body, as: :trix_editor, class: "form-control", rows: "3" %>
